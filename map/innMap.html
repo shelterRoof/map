@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+	    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	    <script type="text/JavaScript" src="http://api.map.baidu.com/api?v=2.0&ak=F9d8685549a1026cb4b5fa6561ab8962"></script>
+		<link rel="stylesheet" type="text/css" href="css/park.css"/>
+	</head>
+	<script>
+//	移动端适配
+		var deviceWidth = document.documentElement.clientWidth;
+			        if(deviceWidth > 750) {
+			        	deviceWidth = 750; 
+			        }		        
+		document.documentElement.style.fontSize = deviceWidth/ 7.5 + 'px';
+	    $(function () {
+	        initMarker("innMap");	        	      
+	    }) 
+	    
+    //加载标注点
+    function initMarker(id) {
+        $.ajax({
+            type: "GET",
+            url: "innData.json",
+            dataType: "json",
+            async: false,
+            data: { "id": id },
+            success: function (data) {
+                map.clearOverlays();
+                var i = 0;
+                var points = [];
+                for (var item in data.datas) {
+                    (function (x) {
+                        //创建标注图像，设置图片大小
+                         var myIcon = new BMap.Icon("img/yu.png", new BMap.Size(61, 72), {
+				            // 指定定位位置
+				            offset: new BMap.Size(10, 25),
+				        });
+				        
+                        var pt = new BMap.Point(data.datas[item].MapPointX, data.datas[item].MapPointY);
+                        points[i] = pt;
+				        // 创建标注对象并添加到地图 
+				        var marker = new BMap.Marker(pt,{icon: myIcon});
+				        //加载海量点数据
+				        map.addOverlay(marker);
+						
+                        var label = new BMap.Label(data.datas[item].name, { offset: new BMap.Size(0, -20) });
+                        marker.setLabel(label);
+                        label.setStyle({
+                            color: "#ffffff",
+                            fontSize: "14px",
+                            backgroundColor: "rgba(50,50,50,0.9)",
+                            border: "0",
+                           	padding:"4px 8px",
+                        });
+                        //创建信息窗口
+                        var opts = {
+                            width: 200,     // 信息窗口宽度
+                           	padding:10,     // 信息窗口高度
+                            title: "<span style='font-size:16px;'>" + data.datas[item].name + "</span>", // 信息窗口标题
+                            enableMessage: true, //设置允许信息窗发送短息
+                            message: "",
+                            border:"0",
+                        }
+                        var showInfo = "电话：<a href='tel:" + data.datas[item].phone + "'class='mapInfo'>" + data.datas[item].phone + "</a><br/>价格：" + data.datas[item].price + "<br/>";
+                        var infoWindow = new BMap.InfoWindow(showInfo, opts);  // 创建信息窗口对象
+                        marker.addEventListener("click", function (e) {
+                            marker.openInfoWindow(infoWindow, pt); //开启信息窗口
+                        });
+                        map.addOverlay(marker);
+                        i++;
+                    })(i);
+                }
+
+                if (id == "") {
+                    map.setViewport(points);
+                } else {
+                    map.setViewport(points);
+                    setTimeout(function () {
+                        map.setZoom(12);
+                    }, 100);  //0.1秒后放大到14级
+                }
+            },
+            error: function (error) {
+                alert("加载失败，请检查网络或其他原因");
+            }
+        });
+    }
+
+    //清除覆盖物
+  /*  function cleardd() {
+        for (var i = 0; i < overlays.length; i++) {
+            map.removeOverlay(overlays[i]);
+        }
+        overlays.length = 0;
+    }*/
+</script>
+<body style="height: 100%; margin: 0">
+   		<div id="innMap" style="width: 100%; height: 100%;">
+        </div>
+</body>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("innMap");    // 创建Map实例
+    map.centerAndZoom(new BMap.Point(116.403927,39.915156), 12);  // 初始化地图,设置中心点坐标和地图级别
+    map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+    map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+</script>
+</html>

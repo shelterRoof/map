@@ -1,0 +1,383 @@
+/*Code to reset*/
+body{
+	margin: 0px;
+	padding: 0px;
+	font:400 16px/1 "microsoft yahei";
+}
+h1,h2,h3,h4,h5,h6,p,ul,ol,li,dd,dt,dl,table,tbody,th,tr,td,input[type="checkbox"],input[type="radio"]{
+	margin: 0px;
+	padding: 0px;
+}
+h1,h2,h3,h4,h5,h6{
+	font-weight: normal;
+}
+ul,li,dd,dt,dl{
+	list-style: none;
+}
+input,textarea,button{
+	border: none;
+}
+::-webkit-input-placeholder {color:#ccc;}
+::-moz-placeholder {color:#ccc;}
+*{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+a{
+	text-decoration: none;
+}
+img{
+	display: inline-block;
+}
+/*The body of the code*/
+.parkHead{
+	color: #000;
+	width: 100%;
+	height:1.28rem;
+	padding-top:0.66rem;
+	background-color: #fff;
+}
+.parkHead h2{
+	float: left;
+	margin-left:3.0rem;
+	font-size: 0.36rem;
+	font-family: "microsoft yahei";
+}
+.parkHead span{
+	float: left;
+	width: 0.22rem;
+	height: 0.39rem;
+	margin-left:0.3rem;
+	background: url(../img/return.png) no-repeat left top;
+	background-size: cover;
+}
+.parkBanner{
+	width: 100%;
+	height: 4.5rem;
+}
+.parkTitle{
+	width: 100%;
+	height:1.80rem;
+	padding:0.5rem 0.3rem;
+	border-bottom: 1px solid #e6e6e6;
+}
+.parkTitle h3{
+	height:0.54rem;
+	color: #444444;
+	font-size: 0.42rem;
+	font-weight: 600;
+}
+.parkTitle p{
+	color:#a0a0a0;
+	font-size: 0.24rem;
+}
+.parkIntroduce,.parkActive{
+	padding: 0.4rem 0.3rem;
+	border-bottom: 1px solid #e6e6e6;
+}
+.parkIntroduce h4,.parkActive h4,.parkStory h4{
+	height: 0.5rem;
+	color:#444444;
+	font-weight: 600;
+	font-size: 0.32rem;
+}
+.parkCont li{
+	float: left; 
+	
+}
+.parkCont li:nth-child(1){
+	margin-right: 0.1rem;
+}
+.parkCont li img{
+	width: 3.4rem;
+	height: 2.12rem;
+	margin-bottom: 0.2rem;
+}
+.parkCont li h5{
+	color: #454545;
+	height: 0.32rem;
+	font-size: 0.22rem;
+}
+.parkCont li p{
+	color:#A0A0A0;
+	height: 0.5rem;
+	font-size: 0.18rem;
+}
+.parkCont li:nth-child(3){
+	float: none;
+	width: 100%;
+	clear: both;
+}
+.parkCont li:nth-child(3) img{
+	width: 100%;
+	height: 4.3rem;  
+}
+.parkActive img{
+	width: 100%;
+	height: 4.3rem;
+	margin-bottom: 0.2rem;
+}
+.parkActive h5{
+	height: 0.4rem;
+	color: #444444;
+	font-size: 0.28rem;
+}
+.parkActive p{
+	color: #A0A0A0;
+	font-size: 0.22rem;
+}
+.parkStory{
+	padding: 0.4rem 0.3rem;
+}
+.parkStory dl{
+	overflow: hidden;
+}
+.parkStory h5{
+	height: 0.23rem;
+	color:#A0A0A0;
+	font-size: 0.22rem;
+	padding-left:0.1rem;
+	margin-bottom: 0.2rem;
+	border-left:0.04rem solid #7e56c1;
+}
+.parkStory dl dt,.parkStory dl dd{
+	float: left;
+	margin-bottom: 0.2rem;
+}
+.parkStory dl dd{
+	width:2.88rem;
+}
+.parkStory dl dt img{
+	width: 3.76rem;
+	height: 2.34rem;
+	margin-right:0.22rem;
+}
+.parkStory dl dd h6{
+	height: 1.32rem;
+	color: #444444;
+	font-size: 0.28rem;
+}
+.parkStory dl dd p{
+	height: 1.02rem;
+	color: #A0A0A0;
+	font-size: 0.22rem;
+}
+.parkLogo{
+	left: 50%;
+	width:1.08rem;
+	height:0.75rem;
+	position: relative;
+	margin-bottom: 0.58rem;
+    transform: translateX(-50%);
+	background: url(../img/logo.png) no-repeat center top;
+	background-size: cover;
+}
+/*回龙观PARK mini*/
+.showPicture{
+	width: 100%;
+	height: 4.5rem;
+	overflow: hidden;
+	position: relative;
+}
+.showPicture ul{
+	width: 100%;
+	height: 4.5rem;
+	position: absolute;
+}
+.showPicture ul li{
+	float: left;
+	width: 7.5rem;
+    height: 4.5rem;
+    position: absolute;
+}
+.showPicture ul li.arr{
+	z-index: 9;
+}
+.showPicture ul li img{
+	width: 100%;
+	height: 100%;
+	
+}
+.showPicture ol{
+	width: 100%;
+	height: 0.34rem;
+	bottom: 0;
+	left: 0.3rem;
+	z-index: 9999;
+	position: absolute;
+	overflow: hidden;
+}
+.showPicture ol li{
+	height: 0.34rem;
+	float: left;
+	width: 16%;
+	color: #b6b6b6;
+	font-size: 0.18rem;
+	text-align: center;
+}
+.showPicture ol li.current{
+	color: #fff;
+}
+.showPicture ol li span{
+	width: 0.16rem;
+	height: 0.08rem;
+	background: url(../img/curIcon.png) no-repeat center bottom;
+	background-size:cover;
+}
+.showPicture ol li span.triangle{
+	display: inline-block;
+}
+.pHreturn{
+	z-index:99;
+	top: 0.65rem;
+	left: 0.3rem;
+	width:0.21rem;
+	height:0.37rem;
+	position: absolute;
+	background: url(../img/hReturn.png) no-repeat left top;
+	background-size:cover;
+}
+.pHdetail>li{
+	overflow: hidden;
+	padding: 0.4rem 0.3rem;
+	border-bottom: 1px solid #E6E6E6;
+}
+.pHdetail .recommend h2{
+	height: 0.62rem;
+	color: #444444;
+	font-size: 0.42rem;
+}
+.pHdetail .recommend h3{
+	float: left;
+	color: #585858;
+	font-size: 0.24rem;
+	line-height: 0.28rem;
+}
+.pHdetail .recommend p{
+	float: left;
+	color: #585858;
+	font-size: 0.24rem;
+	padding-left: 0.32rem;
+	line-height: 0.28rem;
+}
+.pHdetail .recommend p span{
+	width: 0.28rem;
+	height: 0.28rem;
+	float: left;
+	margin-right: 0.08rem;
+	background: url(../img/iphone.png) no-repeat center center;
+	background-size:cover;
+}
+.pHdetail .proBrief h2,.pHdetail .excService h2,.pHdetail .surround h2{
+	height: 0.62rem;
+	color: #444444;
+	font-size: 0.28rem;
+}
+.pHdetail .proBrief p,.pHdetail .excService p{
+	color: #a0a0a0;
+	font-size: 0.22rem;
+	line-height: 0.36rem;
+}
+.pHdetail .surround{
+	padding:0.4rem 0 0;
+	border: none;
+}
+.pHdetail .surround h2{
+	padding-left: 0.3rem;
+}
+.pHdetail .excService p{
+	color: #585858;
+}
+.map{
+	width: 100%;
+	height: 6.4rem;
+	position: relative;
+}
+.location{
+	left: 0;
+	top: 0;
+	width: 100%;
+    z-index: 9;
+	height: 0.6rem;
+	color: #FFFFFF;
+	line-height: 0.6rem;
+	font-size: 0.24rem;
+	position: absolute;
+	text-align: center;
+	background-color:rgba(0,0,0,.5);
+}
+.mapBottom{
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 0.98rem;
+	position: absolute;
+	background-color: rgba(255,255,255,.8);
+}
+.mapBottom li{
+	width:20%;
+	height: 0.98rem;
+	float: left;
+	border: none;
+	text-align: center;
+	padding-top:0.2rem;
+}
+.mapBottom li span{
+	height: 0.32rem;
+	width: 0.32rem;
+	display: inline-block;
+	background: url(../img/subway.png) no-repeat center center;
+	background-size: cover;
+}
+.mapBottom li p{
+	margin-top: 0.08rem;
+}
+.mapBottom li:nth-child(2) span{
+	background-image: url(../img/bus.png);
+}
+.mapBottom li:nth-child(3) span{
+	background-image: url(../img/shop.png);
+}
+.mapBottom li:nth-child(4) span{
+	background-image: url(../img/bank.png);
+}
+.mapBottom li:nth-child(5) span{
+	background-image: url(../img/pharmacy.png);
+}
+#map{
+	width: 100%;
+	height: 100%;
+}
+/*相寓inn地图*/
+.BMapLabel{
+    border-radius: 4px;
+}
+.menu-text {
+    color: black;
+    font-weight: bold;
+}
+#innMap
+{
+    margin-right: 0px;
+    height: 100%;
+    overflow: hidden;
+}
+.return{
+	top: 0.8rem;
+	left: 0.3rem;
+	width:0.21rem;
+	height:0.37rem;
+	z-index:999;
+	position: absolute;
+	background: url(../img/return.png);
+	background-size:contain;
+}
+.BMap_bubble_content {
+	line-height: 20px;
+	font-size: 14px!important;
+}
+.mapInfo{
+	color: #7E56C1;
+	text-decoration: none;
+}
